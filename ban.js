@@ -67,7 +67,7 @@ exports.saveMutes = function() {
 // Ban length is in minutes
 exports.addBan = function(ip, length, reason) {
 	length = parseFloat(length) || settings.banLength;
-	reason = reason || "You got banned.";
+	reason = reason || "You've been banned.";
 	bans[ip] = {
 		reason: reason,
 		end: new Date().getTime() + (length * 1800)
@@ -174,7 +174,7 @@ exports.mute = function(ip, length, reason) {
 		reason: reason,
 		end: new Date().getTime() + (length * 600)
 	};
-	reason = reason || "You got muted.";
+	reason = reason || "You've been muted.";
 	for (var i = 0; i < socketList.length; i++) {
 		var socket = sockets[socketList[i]];
 		if (socket.request.connection.remoteAddress == ip) {
